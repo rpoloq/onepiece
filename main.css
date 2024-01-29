@@ -1,9 +1,64 @@
+@font-face {
+    font-family: 'OnePiece'; 
+    src: url('/assets/fonts/one-piece.ttf') format('truetype'); /* Ruta al archivo de la fuente */
+}
+
+html {
+    background-color: black;
+    padding: 0;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 20px;
     padding: 20px;
-    background: url(assets/images/LUFFY.jpg);
-    color: #333;
+    color: whitesmoke;
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    position: relative;
+}
+
+article {
+    position: relative;
+}
+@media (max-width: 767px) {
+    header {
+        margin: 0;
+        min-height: 400px;
+        background-image: url('assets/images/luffy-movil.jpg'); 
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        font-size: larger;
+    }
+    
+    body {
+        background-color: black;
+    }
+}
+
+@media (min-width: 768px) {
+
+    header {
+        min-height: 300px;
+    }
+    body {
+        min-height: 100vh;
+        background-image: url('assets/images/LUFFY.jpg'); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center
+    }
+
+    main section article {
+        padding: 16px 12px;
+        background-color: black;
+    }
+}
+
+main section article {
+    padding: 12px 32px;
 }
 
 h1 {
@@ -12,18 +67,123 @@ h1 {
     color: #bf5700;
 }
 
+header h1 {
+    margin: 0;
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    font-family: 'OnePiece', sans-serif;
+    text-shadow: 
+    3px 3px 3px rgba(0, 0, 0, 0.75),
+    -3px -3px 3px rgba(0, 0, 0, 0.75),
+    3px -3px 3px rgba(0, 0, 0, 0.75),
+    -3px 3px 3px rgba(0, 0, 0, 0.75);
+}
+
 p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
-a {
+
+strong {
     color: #bf5700;
     text-decoration: none;
     font-weight: bold;
 }
 
-a:hover {
-    text-decoration: underline;
+.input-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.input-container input[type="text"],
+.input-container button {
+    padding: 12px; 
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 70%; 
+    max-width: 300px; 
+    display: inline-block; 
+}
+
+.input-container input[type="text"] {
+    border: 2px solid #bf5700;
+}
+
+.input-container button {
+    background-color: #bf5700;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+.input-container button:hover {
+    background-color: #a04100;
+}
+
+#mensajeOculto {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+@keyframes rotateAnimation {
+    from {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateY(-360deg);
+    }
+}
+.box{
+    animation: rotateAnimation 10s linear infinite;
+
+    position:relative;
+    top:-60px;
+    width: 240px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: 1.5s;
+}
+.box::before{
+   content: '';
+   position: absolute;
+   width: 240px;
+   height: 240px;
+   background:#ddd5;
+   z-index: 1000;
+   transform: translateY(140px) rotateX(90deg) scale(1.1); 
+   filter: blur(40px);
+}
+.box .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 90deg)) translateZ(120px);
+}
+.box .card .imgBx
+{
+    position: relative;
+    width: 100%;
+    height: 240px;
+}
+.box .card .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

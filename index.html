@@ -3,18 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda del Tesoro de One Piece</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Búsqueda del One Piece</title>
+    <link rel="stylesheet" href="main.css">    
+    <!-- <link rel="stylesheet" href="slider.css" /> -->
 </head>
 <body>
-    <h1>Búsqueda del Tesoro de One Piece</h1>
-    <p>¡Bienvenido a la emocionante búsqueda del tesoro inspirada en One Piece! Para empezar, busca la primera pista en la primera caja. Necesitarás descifrar un mensaje oculto para encontrar el siguiente paso.</p>
+    <header>
+        <h1>Búsqueda del One Piece</h1>
+    </header>
+    <main>
+        <section>
+            <article>
+                <h3><strong>¡Hola Miguel! ¡Felicidades otro año más!</strong></h3>
     
-    <p>Para descifrar el mensaje en cada caja, utiliza la clave que encontrarás en la pulsera que acompaña al regalo. La pulsera contiene la clave de desencriptación necesaria para revelar el siguiente paso de la búsqueda. ¡No te olvides de revisar bien la pulsera para encontrar el código secreto!</p>
+                <p>Para este año te he preparado un juego que sé que te gustará. ¡Has de encontrar One Piece! (bueno, no tanto pero confórmate chaval jaja 😜) y para ello deberás buscar los <strong>cuatro road poneglyph</strong> que te guiarán hasta él al igual que en la serie.</p>
+            
+                <p>Estos poneglyphos están escondidos en los sigueinte espacios de tu casa: <strong>cocina, tu habitación, salón y baño</strong>. ¡Búscalos bien para encotrarlos!</p>
+            
+                <p>Dentro de ellos habrá un código el cuál deberás verificar en esta página introduciéndolos en el campo de texto de abajo y clicando el botón en el qe pone <strong>'Verificar'</strong>. Para abrir los poneglyphos solo tienes que levantar un poco la tapa donde está el jeroglífico:<br> <img style="width: 50px; height: 50px;" src="assets/images/poneglyph.jpeg" alt="poneglypho-jeroglifico"></p>
 
-    <!-- Enlace al código de desencriptación -->
-    <p>Una vez que tengas el código secreto, puedes usarlo en este <a href="https://www.ejemplo.com/desencriptador">enlace</a> para descifrar el mensaje y avanzar en tu búsqueda.</p>
+                <p>¡Una vez encuentres los cuatro códigos te aparecerá la <strong>ubicación del One Piece!</strong></p>
 
-    <p>¡Buena suerte en tu búsqueda del tesoro! Que los vientos del mar te guíen hacia la gloria.</p>
+                <p><strong>¡Buena suerte en tu búsqueda!</strong></p>
+            </article>
+            
+        </section>
+        <section>
+            <div class="input-container">
+                <input type="text" id="codigoInput" placeholder="Introduce un código">
+                <button onclick="verificarCodigo()">Verificar</button>
+            </div>
+        </section>
+        <section>
+            <article id="mensajeOculto"  style="display: none;">
+                <div>¡Códigos verificados! La <strong>div</strong> ahora es visible.</div>
+                <div class="container">
+                    <div class="box">
+                        <div class="card" style="--i:1">
+                            <div class="imgBx"><img src="assets/images/poneglyph.jpeg" alt="img1"></div>
+                        </div>
+                        <div class="card" style="--i:2">
+                            <div class="imgBx"><img src="assets/images/poneglyph-2.jpg" alt="img1"></div>
+                        </div>
+                        <div class="card" style="--i:3">
+                            <div class="imgBx"><img src="assets/images/poneglyph-2.jpg" alt="img1"></div>
+                        </div>
+                        <div class="card" style="--i:4">
+                            <div class="imgBx"><img src="assets/images/poneglyph-2.jpg" alt="img1"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+           
+        </section>
+        
+    </main>
+   <script>
+    const codigos = ["codigo1", "codigo2", "codigo3", "codigo4"];
+    let codigosIngresados = [];
+
+    function verificarCodigo() {
+        const codigoInput = document.getElementById("codigoInput");
+        const codigo = codigoInput.value.trim().toLowerCase();
+        
+        if (codigo === "") {
+            alert("Por favor, ingresa un código.");
+            return;
+        }
+        
+        if (!codigos.includes(codigo)) {
+            alert("Código incorrecto. Inténtalo de nuevo.");
+            return;
+        }
+        
+        if (codigosIngresados.includes(codigo)) {
+            alert("Este código ya ha sido ingresado anteriormente.");
+            return;
+        }
+        
+        codigosIngresados.push(codigo);
+        codigoInput.value = "";
+        
+        if (codigosIngresados.length === 4) {
+            mostrarMensaje();
+        }
+    }
+
+    function mostrarMensaje() {
+        const mensajeDiv = document.getElementById("mensajeOculto");
+        mensajeDiv.style.display = "block";
+    }
+   </script>
 </body>
 </html>
