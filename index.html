@@ -33,10 +33,8 @@
                 <button onclick="verificarCodigo()">Verificar</button>
             </div>
         </section>
-        <section style="min-height: 500px;">
-            <!-- <article id="mensajeOculto"  style="display: none;"> -->
-            <article id="mensajeOculto">
-
+        <section id="mensajeOculto" style="display: none;">
+            <article >
                 <p>¡Enhorabuena! ¡Has encontrado <strong>todos los códigos</strong>!</p>
 
                 <p>Tu regalo está en el <b>ARMARIO DE LA COCHERA</b> ¡Que lo disfrutes!</p>
@@ -95,6 +93,8 @@
     function mostrarMensaje() {
         const mensajeDiv = document.getElementById("mensajeOculto");
         mensajeDiv.style.display = "block";
+        mensajeDiv.style.minHeight = "500px";
+
     }
    </script>
 </body>

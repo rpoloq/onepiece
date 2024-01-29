@@ -72,7 +72,7 @@ strong {
 
 .input-container {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px;
 }
 
 .input-container input[type="text"],
@@ -183,7 +183,6 @@ strong {
         width: 120px;
         height: 120px;
         top:250px;
-
     }
 
     .box .card {
