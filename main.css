@@ -122,7 +122,7 @@ header h1 {
     position: absolute;
     bottom: 10%;
     width: 100%;
-    font-family: 'OnePiece', sans-serif;
+    /* font-family: 'OnePiece', sans-serif; */
     text-shadow: 
     3px 3px 3px rgba(0, 0, 0, 0.75),
     -3px -3px 3px rgba(0, 0, 0, 0.75),
