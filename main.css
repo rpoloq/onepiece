@@ -72,6 +72,7 @@ strong {
     font-weight: bold;
 }
 
+
 .input-container {
     text-align: center;
     margin: 20px;
@@ -224,8 +225,8 @@ strong {
     }
 
     main section article {
-        padding: 16px 12px;
-        background-color: black;
+        padding: 5% 15%;
+        backdrop-filter: blur(10px);
     }
 
     .box{
