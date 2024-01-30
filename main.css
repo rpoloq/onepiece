@@ -167,6 +167,11 @@ strong {
 
 @media (max-width: 767px) {
     header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
         margin: 0;
         min-height: 400px;
         background-image: url('assets/images/luffy-movil.jpg'); 
@@ -174,8 +179,13 @@ strong {
         background-repeat: no-repeat;
         font-size: larger;
     }
+    main {
+        margin-top: 400px; 
+        position: relative; 
+        z-index: 2; 
+        background-color: black;
+    }
 
-    
     body {
         background-color: black;
     }
@@ -184,6 +194,10 @@ strong {
         font-size: 3.5em;
         padding: 24px;
         margin-top: 40%;
+    }
+
+    sectiion h3 {
+        padding-top: 24px;
     }
 
     .box{
