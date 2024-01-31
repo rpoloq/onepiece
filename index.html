@@ -41,7 +41,7 @@
 
                 <p><b id="mensajeEncriptado"></b></p>
                 <p>¡Que lo disfrutes!</p>
-                <div id="final-gif" style="display: none;">
+                <div id="gif" style="display: none;">
                     <img class="final-img" src="assets/images/shanks.gif" alt="shanks">
                 </div>
             </article>
@@ -78,7 +78,6 @@
         if (codigosIngresados.length === 4) {
             mostrarMensaje();
             setTimeout(desencriptarMensaje, 5000);
-            mostrarGif();
         }
     }
 
@@ -94,29 +93,40 @@
 
     function desencriptarMensaje() {
         var mensajeEncriptado = document.getElementById("mensajeEncriptado").textContent;
-        var mensajeDesencriptado = mensajeEncriptado; // Empieza con el mensaje encriptado
-        var index = 0; // Variable para mantener el índice de la letra a desencriptar
-        
-        // Función para desencriptar las letras con un retraso de 100ms por letra
-        function desencriptarLetra() {
-            if (index < mensajeEncriptado.length) {
-                var letraEncriptada = mensajeEncriptado.charAt(index);
-                // Si la letra es un espacio, mantenlo igual
-                if (letraEncriptada !== " ") {
-                    var letraDesencriptada = String.fromCharCode(letraEncriptada.charCodeAt(0) - 1);
-                    mensajeDesencriptado = mensajeDesencriptado.substring(0, index) + letraDesencriptada + mensajeDesencriptado.substring(index + 1);
-                    document.getElementById("mensajeEncriptado").textContent = mensajeDesencriptado;
-                }
-                index++;
-                setTimeout(desencriptarLetra, 100); // Llama a la función de nuevo después de 100ms
+        var mensajeDesencriptado = mensajeEncriptado;
+        var letrasDesencriptadas = 0;
+
+        for (var i = 0; i < mensajeDesencriptado.length; i++) {
+            var letraEncriptada = mensajeDesencriptado.charAt(i);
+            // Si la letra es un espacio, mantenlo igual
+            if (letraEncriptada !== " ") {
+                // Desencriptar la letra con un retraso de 100ms por letra
+                setTimeout(function(indice) {
+                    return function() {
+                        var letraDesencriptada = String.fromCharCode(mensajeEncriptado.charCodeAt(indice) - 1);
+                        mensajeDesencriptado = mensajeDesencriptado.substring(0, indice) + letraDesencriptada + mensajeDesencriptado.substring(indice + 1);
+                        document.getElementById("mensajeEncriptado").textContent = mensajeDesencriptado;
+
+                        letrasDesencriptadas++;
+
+                        // Verificar si se ha desencriptado la última letra
+                        if (letrasDesencriptadas === mensajeEncriptado.replace(/ /g, "").length) {
+                            // Llamar a la función deseada
+                            mostrarGif();
+                        }
+                    };
+                }(i), i * 100);
+            } else {
+                // Incrementar el contador de letras desencriptadas para los espacios
+                letrasDesencriptadas++;
             }
         }
-        
-        desencriptarLetra(); // Comienza el proceso de desencriptación
     }
 
+
+
     function mostrarGif() {
-        const mensajeDiv = document.getElementById("final-gif");
+        const mensajeDiv = document.getElementById("gif");
         mensajeDiv.style.display = "block";
     }
    </script>
