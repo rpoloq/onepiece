@@ -1,6 +1,11 @@
 @font-face {
     font-family: 'One Piece'; 
-    src: url('./assets/fonts/one-piece.ttf') format('truetype');
+    src: url("https://db.onlinewebfonts.com/t/82848488b73a87d72f2436c02b9ab608.eot");
+    src: url("https://db.onlinewebfonts.com/t/82848488b73a87d72f2436c02b9ab608.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/82848488b73a87d72f2436c02b9ab608.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/82848488b73a87d72f2436c02b9ab608.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/82848488b73a87d72f2436c02b9ab608.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/82848488b73a87d72f2436c02b9ab608.svg#ONE PIECE")format("svg");
 }
 
 html {
