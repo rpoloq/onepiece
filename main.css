@@ -1,8 +1,7 @@
-/* @font-face {
-    font-family: 'OnePiece'; 
-    src: url('../assets/fonts/one-piece.ttf') format('truetype');
-} */
-@import url('https://fonts.cdnfonts.com/css/one-piece');
+@font-face {
+    font-family: 'One Piece'; 
+    src: url('./assets/fonts/one-piece.ttf') format('truetype');
+}
 
 html {
     background-color: black;
