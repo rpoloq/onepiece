@@ -1,7 +1,8 @@
-@font-face {
+/* @font-face {
     font-family: 'OnePiece'; 
     src: url('../assets/fonts/one-piece.ttf') format('truetype');
-}
+} */
+@import url('https://fonts.cdnfonts.com/css/one-piece');
 
 html {
     background-color: black;
@@ -51,7 +52,7 @@ header h1 {
     /* position: absolute;
     bottom: 18%; */
     width: 100%;
-    font-family: 'OnePiece', sans-serif;
+    font-family: 'One Piece', sans-serif;
     text-align: center;
     text-shadow: 
     3px 3px 3px rgba(0, 0, 0, 0.75),
@@ -181,7 +182,12 @@ strong {
         backdrop-filter: blur(10px);
     }
 
+    .input-container{
+        padding: 5% 0;
+    }
+
     .final-img {
         width: 50%;
+        margin-bottom: 3%;
     }
 }
