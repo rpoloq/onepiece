@@ -46,7 +46,7 @@
         </section>
     </main>
    <script>
-    const codigos = ["codigo1", "codigo2", "codigo3", "codigo4"];
+    const codigos = ["SFHBMN", "FTUB FO", "BSNBJSP", "DPDISFB"];
     let codigosIngresados = [];
 
     function verificarCodigo() {
@@ -83,6 +83,20 @@
 
         mensajeDiv.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+
+    function desencriptarMensaje() {
+        var mensajeEncriptado = document.getElementById("mensajeEncriptado").textContent;
+        var mensajeDesencriptado = "";
+        for (var i = 0; i < mensajeEncriptado.length; i++) {
+            var letraEncriptada = mensajeEncriptado.charAt(i);
+            var letraDesencriptada = String.fromCharCode(letraEncriptada.charCodeAt(0) - 1);
+            mensajeDesencriptado += letraDesencriptada;
+        }
+        document.getElementById("mensajeEncriptado").textContent = mensajeDesencriptado;
+    }
+
+    mostrarMensaje();
+    setTimeout(desencriptarMensaje, 3000);
    </script>
 </body>
 </html>
