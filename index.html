@@ -34,11 +34,14 @@
             </div>
         </section>
         <section id="mensajeOculto" style="display: none;">
-            <article >
+            <article>
                 <p>¡Enhorabuena! ¡Has encontrado <strong>todos los códigos</strong>!</p>
 
-                <p>Tu regalo está en el <b>ARMARIO DE LA COCHERA</b> ¡Que lo disfrutes!</p>
-                <div>
+                <p>Para desencriptar el mensaje tienes que sustituir cada letra por su anterior en el abecedario</p>
+
+                <p><b id="mensajeEncriptado"></b></p>
+                <p>¡Que lo disfrutes!</p>
+                <div id="final-gif" style="display: none;">
                     <img class="final-img" src="assets/images/shanks.gif" alt="shanks">
                 </div>
             </article>
@@ -46,7 +49,8 @@
         </section>
     </main>
    <script>
-    const codigos = ["sfhmn", "ftub fo", "bsnbjsp", "dpdisfb"];
+    // const codigos = ["sfhmp", "ftub fo", "bsnbjsp", "dpdisfb"];
+    const codigos = ["1", "2", "3", "4"];
     let codigosIngresados = [];
 
     function verificarCodigo() {
@@ -73,6 +77,8 @@
         
         if (codigosIngresados.length === 4) {
             mostrarMensaje();
+            setTimeout(desencriptarMensaje, 5000);
+            mostrarGif();
         }
     }
 
@@ -80,23 +86,39 @@
         const mensajeDiv = document.getElementById("mensajeOculto");
         mensajeDiv.style.display = "block";
         mensajeDiv.style.minHeight = "500px";
+        // Agregar el mensaje encriptado al elemento
+        document.getElementById("mensajeEncriptado").textContent = "SFHBMP FTUB FO BSNBSJP DPDIFSB";
 
         mensajeDiv.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function desencriptarMensaje() {
         var mensajeEncriptado = document.getElementById("mensajeEncriptado").textContent;
-        var mensajeDesencriptado = "";
-        for (var i = 0; i < mensajeEncriptado.length; i++) {
-            var letraEncriptada = mensajeEncriptado.charAt(i);
-            var letraDesencriptada = String.fromCharCode(letraEncriptada.charCodeAt(0) - 1);
-            mensajeDesencriptado += letraDesencriptada;
+        var mensajeDesencriptado = mensajeEncriptado; // Empieza con el mensaje encriptado
+        var index = 0; // Variable para mantener el índice de la letra a desencriptar
+        
+        // Función para desencriptar las letras con un retraso de 100ms por letra
+        function desencriptarLetra() {
+            if (index < mensajeEncriptado.length) {
+                var letraEncriptada = mensajeEncriptado.charAt(index);
+                // Si la letra es un espacio, mantenlo igual
+                if (letraEncriptada !== " ") {
+                    var letraDesencriptada = String.fromCharCode(letraEncriptada.charCodeAt(0) - 1);
+                    mensajeDesencriptado = mensajeDesencriptado.substring(0, index) + letraDesencriptada + mensajeDesencriptado.substring(index + 1);
+                    document.getElementById("mensajeEncriptado").textContent = mensajeDesencriptado;
+                }
+                index++;
+                setTimeout(desencriptarLetra, 100); // Llama a la función de nuevo después de 100ms
+            }
         }
-        document.getElementById("mensajeEncriptado").textContent = mensajeDesencriptado;
+        
+        desencriptarLetra(); // Comienza el proceso de desencriptación
     }
 
-    mostrarMensaje();
-    setTimeout(desencriptarMensaje, 3000);
+    function mostrarGif() {
+        const mensajeDiv = document.getElementById("final-gif");
+        mensajeDiv.style.display = "block";
+    }
    </script>
 </body>
 </html>
