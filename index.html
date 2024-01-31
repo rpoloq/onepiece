@@ -38,10 +38,10 @@
             <article>
                 <p>¡Enhorabuena! ¡Has encontrado <strong>todos los códigos</strong>!</p>
 
-                <p>Para desencriptar la unicación solo había que sustituir cada letra por su anterior en el abecedario 😉</p>
+                <p>Para desencriptar la ubicación solo había que sustituir cada letra por su anterior en el abecedario 😉</p>
 
                 <p><b id="mensajeEncriptado"></b></p>
-                <p>¡Que lo disfrutes!</p>
+                <p>¡Espero que te guste!</p>
                 <div id="gif" style="display: none;">
                     <img class="final-img" src="assets/images/shanks.gif" alt="shanks">
                 </div>
@@ -78,7 +78,7 @@
         
         if (codigosIngresados.length === 4) {
             mostrarMensaje();
-            setTimeout(desencriptarMensaje, 8000);
+            setTimeout(desencriptarMensaje, 10000);
         }
     }
 
@@ -101,7 +101,6 @@
             var letraEncriptada = mensajeDesencriptado.charAt(i);
             // Si la letra es un espacio, mantenlo igual
             if (letraEncriptada !== " ") {
-                // Desencriptar la letra con un retraso de 100ms por letra
                 setTimeout(function(indice) {
                     return function() {
                         var letraDesencriptada = String.fromCharCode(mensajeEncriptado.charCodeAt(indice) - 1);
@@ -110,9 +109,7 @@
 
                         letrasDesencriptadas++;
 
-                        // Verificar si se ha desencriptado la última letra
                         if (letrasDesencriptadas === mensajeEncriptado.length) {
-                            // Llamar a la función deseada
                             mostrarGif();
                         }
                     };
