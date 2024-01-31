@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'OnePiece'; 
-    src: url('/assets/fonts/one-piece.ttf') format('truetype'); /* Ruta al archivo de la fuente */
+    src: url('../assets/fonts/one-piece.ttf') format('truetype');
 }
 
 html {
@@ -146,6 +146,10 @@ strong {
 
     .final-img {
         width: 100%;
+    }
+
+    #mensajeEncriptado {
+        margin: auto -16px;
     }
 
 }
